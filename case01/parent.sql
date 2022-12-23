@@ -1,12 +1,31 @@
-CREATE TABLE `orders_item`
+-- CREATE TABLE `parent`
+-- (
+--     `Parent`    int(10) NOT NULL,
+--     `Attribute` varchar(200) NOT NULL,
+--     PRIMARY KEY (
+--                  `Parent`,
+--                  `Attribute`
+--         )
+-- ) ENGINE = InnoDB
+--   DEFAULT CHARSET = utf8mb4;
+
+-- CREATE TABLE `parent`
+-- (
+--     `Attribute` varchar(200) NOT NULL,
+--     `Parent`    int(10) NOT NULL,
+--     PRIMARY KEY (
+--                  `Attribute`,
+--                  `Parent`
+--         )
+-- ) ENGINE = InnoDB
+--   DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE `parent`
 (
-    `ProductionPlantBusinessPartner` int(12) DEFAULT NULL,
-    `ProductionPlant`                varchar(4)  DEFAULT NULL,
-    `ProductionPlantBatch`           varchar(10) DEFAULT NULL,
-
-    CONSTRAINT `OrdersItemDataProductionPlantBatch_fk` FOREIGN KEY (`ProductionPlantBusinessPartner`,
-                                                                                `ProductionPlant`,
-                                                                                `ProductionPlantBatch`) REFERENCES `record_batch_data` (`BusinessPartner`, `Plant`, `Batch`)
-
+    `Parent`    int(10) NOT NULL,
+    `Attribute` varchar(200) NOT NULL,
+    PRIMARY KEY (`Parent`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
+
+ALTER TABLE parent ADD INDEX index02(Attribute)
